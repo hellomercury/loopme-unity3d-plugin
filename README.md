@@ -23,7 +23,7 @@ If you have questions please contact us at support@loopmemedia.com.
 
 An appKey is required to use the `loopme-unity3d-plugin`. The appKey uniquely identifies your app to the LoopMe ad network. (Example appKey: 7643ba4d53.) To get an appKey visit the **[LoopMe Dashboard](http://loopme.me/)**. 
 
-`loopme-unity3d-plugin` connects to native LoopMe `iOS` & `Android` libraries which control the interstitial ads, requires `Unity3D 3.5.7` or higher, supports a minimum of `Android 4.0 (API Level 14)` and `iOS 6.0` and above.
+`loopme-unity3d-plugin` connects to native LoopMe `iOS` & `Android` libraries which control the interstitial ads, requires `Unity3D 5.5.1` or higher, supports a minimum of `Android 4.4.4 (API Level 19)` and `iOS 9.0` and above.
 
 ## Usage ##
 
@@ -64,20 +64,17 @@ Update `androidManifest.xml` with permissions and activities:
 
 ### iOS set-up ###
 
-`loopme-unity3d-plugin` requires **LoopMe iOS SDK** to be added to `XCode` project:
+Make sure following `frameworks` are added in `Xcode` project's `build phases`
 
-1. Copy the **loopme-ios** folder to the **Library** folder of your `XCode` project
-2. Make sure following `frameworks` are added in `Xcode` project's `build phases`
  * `MessageUI.framework`
  * `StoreKit.framework`
  * `AVFoundation.framework`
+ * `AVKit.framework`
+ * `GLKit.framework`
  * `CoreMedia.framework`
  * `AudioToolbox.framework`
  * `AdSupport.framework`
  * `CoreTelephony.framework`
-3. Add following flags to other linker flags in `XCode` project's `build settings`
- * `-ObjC`
- * `-all_load`
 
 ## Sample project ##
 
