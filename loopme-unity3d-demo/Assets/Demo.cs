@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class Demo : MonoBehaviour
 {
 	// Test appKey, replace it with your own from the LoopMe dashboard
-	private string appKey = "3ee6fc7a45";
+	private string appKey = "test_interstitial_l";
 	
  	void Start() {
 		LoopMeInterstitial.Create(appKey);
