@@ -9,7 +9,7 @@ public class Demo : MonoBehaviour
  	void Start() {
 		LoopMeInterstitial.Create(appKey);
 	}
-	
+
 	void OnGUI()
  	{  
 		if (GUI.Button (new Rect(10.0f, 10.0f, 400, 100), "Load Interstitial")) {
