@@ -21,9 +21,11 @@ If you have questions please contact us at support@loopmemedia.com.
 
 ## Requirements ##
 
-An appKey is required to use the `loopme-unity3d-plugin`. The appKey uniquely identifies your app to the LoopMe ad network. (Example appKey: test_intertstitial_l.) To get an appKey visit the **[LoopMe Dashboard](http://loopme.me/)**. 
+An appKey is required to use the `loopme-unity3d-plugin`. The appKey uniquely identifies your app to the LoopMe ad network. (Example appKey: 7643ba4d53.) To get an appKey visit the **[LoopMe Dashboard](http://app.loopme.com)**. 
 
-`loopme-unity3d-plugin` connects to native LoopMe `iOS` & `Android` libraries which control the interstitial ads, requires `Unity3D 5.5.1` or higher, supports a minimum of `Android 4.4.4 (API Level 19)` and `iOS 9.0` and above.
+`loopme-unity3d-plugin` connects to native LoopMe `iOS` & `Android` libraries which control the interstitial ads. Tested on `Unity3D 2018.3.0f2`, supports a minimum of `Android 5.0 (API Level 21)` and `iOS 10.0` and above.
+
+Included `loopme ios SDK 7.0.3` and `loopme android SDK 6.1.9`
 
 ## Usage ##
 
@@ -47,36 +49,35 @@ Integrating the `loopme-unity3d-plugin` is very simple and should take less than
 
 ### Android set-up ###
 
-Update `androidManifest.xml` with permissions and activities:
-
-`<activity android:name="com.loopme.AdActivity" android:configChanges="orientation|keyboardHidden|screenSize"
-       android:hardwareAccelerated="true"/>        
-<activity android:name="com.loopme.AdBrowserActivity" />        
-<activity android:name="com.loopme.PlayerActivity" android:configChanges="orientation|keyboardHidden|screenSize"
-       android:hardwareAccelerated="true"/>
-<uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-<uses-permission android:name="android.permission.VIBRATE" />`
+1. Import `loopme-unity3d-plugin` to your Unity project. 
+Make sure `Plugins/Android/*` checked while importing Unity package.
+2. Don't forget to change а package name in plugin's AndroidManifest.xml.
+```XML
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" 
+   package="YOUR_PACKAGE_NAME"
+   xmlns:tools="http://schemas.android.com/tools" 
+   android:installLocation="preferExternal">
+```
 
 ### iOS set-up ###
 
-Make sure following `frameworks` are added in `Xcode` project's `build phases`
+1. Import `loopme-unity3d-plugin` to your Unity project. Make sure `Plugins/iOS/*` checked while importing Unity package.
+2. Select `LoopMeUnitedSDK.framework` in Unity to open Import Settings
+3. Add checkmark on following frameworks:
+ * `AdSupport`
+ * `CoreTelephony`
+ * `StoreKit`
+ * `AVKit`
+ * `GLKit`
+ * `WebKit`
+ 
+4. Add following libraries to `Linked Frameworks and Libraries` in `XCode` project
+* `libxml2.tbd`
 
- * `MessageUI.framework`
- * `StoreKit.framework`
- * `AVFoundation.framework`
- * `AVKit.framework`
- * `GLKit.framework`
- * `CoreMedia.framework`
- * `AudioToolbox.framework`
- * `AdSupport.framework`
- * `CoreTelephony.framework`
- * `OpenGLES.framework`
- * `WebKit.framework`
+5. Add following flags to other linker flags in `XCode` project's `build settings`
+ * `-ObjC`
+
 
 ## Sample project ##
 
@@ -104,4 +105,4 @@ OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITU
 HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-COPYRIGHT © 2017, LOOPME LTD, ALL RIGHTS RESERVED
+COPYRIGHT © 2012, LOOPME LTD, ALL RIGHTS RESERVED
